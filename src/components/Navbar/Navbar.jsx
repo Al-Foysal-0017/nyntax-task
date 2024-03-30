@@ -5,21 +5,11 @@ import { Link } from 'react-router-dom';
 import ResponsiveMenu from "./ResponsiveMenu";
 
 export const Navlinks = [
-  // {
-  //   id: 1,
-  //   name: "HOME",
-  //   link: "/#",
-  // },
   {
     id: 2,
     name: "CARS",
     link: "/cars",
   },
-  // {
-  //   id: 1,
-  //   name: "ABOUT",
-  //   link: "/#about",
-  // },
   {
     id: 1,
     name: "BOOKING",

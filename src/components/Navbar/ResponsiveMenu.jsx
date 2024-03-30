@@ -1,7 +1,5 @@
-import React from "react";
-import { FaUserCircle } from "react-icons/fa";
-
 import { Navlinks } from "./Navbar";
+import { Link } from "react-router-dom";
 
 const ResponsiveMenu = ({ showMenu }) => {
   console.log("showMenu", showMenu);
@@ -13,16 +11,14 @@ const ResponsiveMenu = ({ showMenu }) => {
     >
       <div className="card">
         <div className="flex items-center justify-start gap-3">
-          <FaUserCircle size={50} />
-          <div>
-            <h1>Hello User</h1>
-            <h1 className="text-sm text-slate-500">Premium user</h1>
+          <div className="text-3xl font-bold text-primary">
+           <Link to="/">Nyntax</Link>
           </div>
         </div>
         <nav className="mt-12">
           <ul className="space-y-4 text-xl">
-            {Navlinks.map((data) => (
-              <li>
+            {Navlinks.map((data, id) => (
+              <li key={id}> 
                 <a href={data.link} className="mb-5 inline-block">
                   {data.name}
                 </a>
@@ -33,7 +29,7 @@ const ResponsiveMenu = ({ showMenu }) => {
       </div>
       <div className="footer">
         <h1>
-          Made with ❤ by <a href="https://dilshad-ahmed.github.io/">Dilshad</a>{" "}
+          Nyntax Car Rental
         </h1>
       </div>
     </div>

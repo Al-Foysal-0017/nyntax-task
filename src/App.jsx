@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from 'react-router-dom';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -10,10 +10,7 @@ import Footer from "./components/Footer/Footer";
 import Invoice from "./pages/Invoice";
 import Cars from "./pages/Cars";
 
-
-
 const App = () => {
-      // dark mode start
       const [theme, setTheme] = useState(
         localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
       );
@@ -28,7 +25,6 @@ const App = () => {
           localStorage.setItem("theme", "light");
         }
       }, [theme]);
-      // dark mode end
     
       React.useEffect(() => {
         AOS.init({

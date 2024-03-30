@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import "./Book.css"
 import { useNavigate } from "react-router-dom";
 import TotalCharges from '../../components/TotalCarges/TotalCharges';
+import "./Book.css"
 
 function AccountSettings() {
     const navigate = useNavigate();
@@ -41,15 +41,6 @@ function AccountSettings() {
 
     const handleReservationChange = (e) => {
         const { name, value } = e.target;
-    
-        // Validate pickup_Date and return_Date
-        // if (name === 'pickup_Date') {
-        //   const pickupDate = new Date(value);
-        //   if (pickupDate < today) {
-        //     alert('Pickup date cannot be in the past. Please select a future date.');
-        //     return;
-        //   }
-        // }
     
         if (name === 'return_Date') {
           const returnDate = new Date(value);
@@ -182,11 +173,11 @@ function AccountSettings() {
             <h1 className="pt-20 pb-10 text-3xl font-bold capitalize">
                 Reservation
             </h1>
-            {/* A, B, C side */}
+            {/* First, Middle, Last side */}
             <div className='flex w-full flex-col xl:flex-row gap-3'>
-                {/* A, B side */}
+                {/* First, Middle side */}
                 <div className='flex gap-3 lg:flex-row flex-col xl:w-4/6 w-full'>
-                    {/* A side */}
+                    {/* First side */}
                     <div className='lg:w-1/2 w-full flex flex-col gap-3'>
                         <div className='flex w-full flex-col gap-6 p-6 mx-auto rounded-md shadow-md dark:bg-gray-800'>
                             <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-white">
@@ -300,7 +291,7 @@ function AccountSettings() {
                             </div>
                         </div>
                     </div>
-                    {/* B side */}
+                    {/* Middle side */}
                     <div className='lg:w-1/2 w-full flex flex-col gap-3'>
                         <div className='flex w-full flex-col gap-6 p-6 mx-auto rounded-md shadow-md dark:bg-gray-800'>
                             <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-white">
@@ -409,7 +400,7 @@ function AccountSettings() {
                     </div>
                 </div>
                 <div className='xl:w-1/3 w-full'>
-                    {/* C cide */}
+                    {/* Last cide */}
                     <div className='totalChargesBg borderBlue w-full flex flex-col gap-6 p-6 mx-auto rounded-md shadow-md dark:bg-gray-800'>
                         <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-white">
                             Charges Summary

@@ -1,6 +1,6 @@
 import man1 from "../../assets/person/man1.jpg"
 import man2 from "../../assets/person/man3.jpeg"
-import girl1 from "../../assets/person/man4.jpeg"
+import man3 from "../../assets/person/man4.jpeg"
 
 const testimonialData = [
   {
@@ -11,7 +11,7 @@ const testimonialData = [
   },
   {
     name: "Somrat",
-    image: girl1,
+    image: man3,
     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     aosDelay: "300",
   },

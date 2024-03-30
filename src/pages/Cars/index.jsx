@@ -38,7 +38,7 @@ const CarList = () => {
         <h1 data-aos="fade-up" className="pt-20 mb-10 text-3xl font-bold text-black capitalize dark:text-white">
             Our Cars
         </h1>
-        <div>
+        <div className="min-h-screen">
           <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-16">
             {cars.map((car) => (
               <div
@@ -63,7 +63,6 @@ const CarList = () => {
                         </div>
                         <Link to="/book-car">Book Car</Link>
                   </div>
-                    {/* <p>Type: {car.type}</p> */}
                     <div className="flex">
                         <p>Seats: {car.seats};</p>&nbsp;&nbsp;&nbsp;
                         <p>Bags: {car.bags}</p>
