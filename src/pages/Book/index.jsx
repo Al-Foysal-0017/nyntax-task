@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import "./Book.css"
-import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import TotalCharges from '../../components/TotalCarges/TotalCharges';
 
@@ -92,12 +91,7 @@ function AccountSettings() {
           [name]: checked,
         });
     };
-    // console.log(reservationData);
-    // console.log(vehicleData);
-    // console.log(customerInfo);
-    // console.log(additionalCharges);
 
-    // Function to calculate the total
     const calculateTotal = () => {
         let total = 0;
 
@@ -150,6 +144,21 @@ function AccountSettings() {
 
     // redirecting to invoice component
     const redirectToInvoice = () => {
+        // Check if required fields are not empty
+        if (
+            !reservationData.pickup_Date ||
+            !reservationData.return_Date ||
+            !vehicleData.vehicle_Type ||
+            !vehicleData.vehicle ||
+            !customerInfo.first_name ||
+            !customerInfo.last_name ||
+            !customerInfo.email ||
+            !customerInfo.phone
+        ) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
         navigate("/invoice", {
             state: {
                 day,
@@ -163,9 +172,9 @@ function AccountSettings() {
         });
     };
   return (
-    <div>
-        <section className='container py-2 md:py-0 min-h-screen mb-40'>
-            <h1 className="mt-20 mb-10 text-3xl font-bold text-black capitalize dark:text-black">
+    <div className='dark:bg-dark dark:text-white pb-40'>
+        <section className='container py-2 md:py-0 min-h-screen '>
+            <h1 className="pt-20 pb-10 text-3xl font-bold capitalize">
                 Reservation
             </h1>
             {/* A, B, C side */}
@@ -190,7 +199,9 @@ function AccountSettings() {
                                 />
                             </div>
                             <div>
-                                <label className="text-black dark:text-gray-200" htmlFor="date">Pickup Date</label>
+                                <label className="text-black dark:text-gray-200" htmlFor="date">
+                                    Pickup Date<span className='text-red-500'>*</span>
+                                </label>
                                 <input 
                                     type="date"
                                     id="pickup_Date"
@@ -203,7 +214,9 @@ function AccountSettings() {
                             </div>
 
                             <div>
-                                <label className="text-black dark:text-gray-200" htmlFor="date">Return Date</label>
+                                <label className="text-black dark:text-gray-200" htmlFor="date">
+                                    Return Date<span className='text-red-500'>*</span>
+                                </label>
                                 <input 
                                     type="date"
                                     id="return_Date"
@@ -231,6 +244,8 @@ function AccountSettings() {
                             <div>
                                 <label className="text-black dark:text-gray-200" htmlFor="username">Discount</label>
                                 <input 
+                                    placeholder='$ 0.00'
+                                    readOnly
                                     type="text"
                                     id="discount"
                                     name="discount"
@@ -245,7 +260,9 @@ function AccountSettings() {
                                 Vehicle Information
                             </h1>
                             <div>
-                                <label className="text-black dark:text-gray-200" htmlFor="vehicle_Type">Vehicle Type</label>
+                                <label className="text-black dark:text-gray-200" htmlFor="vehicle_Type">
+                                    Vehicle Type<span className='text-red-500'>*</span>
+                                </label>
                                 <select
                                     id="vehicle_Type"
                                     name="vehicle_Type"
@@ -260,7 +277,9 @@ function AccountSettings() {
                                 </select>
                             </div>
                             <div>
-                                <label className="text-black dark:text-gray-200" htmlFor="vehicle">Vehicle</label>
+                                <label className="text-black dark:text-gray-200" htmlFor="vehicle">
+                                    Vehicle<span className='text-red-500'>*</span>
+                                </label>
                                 <select 
                                     id="vehicle"
                                     name="vehicle"
@@ -283,7 +302,9 @@ function AccountSettings() {
                                 Customer Information
                             </h1>
                             <div>
-                                <label className="text-black dark:text-gray-200" htmlFor="first_name">First Name</label>
+                                <label className="text-black dark:text-gray-200" htmlFor="first_name">
+                                    First Name<span className='text-red-500'>*</span>
+                                </label>
                                 <input 
                                     type="text"
                                     id="first_name"
@@ -294,7 +315,9 @@ function AccountSettings() {
                                 />
                             </div>
                             <div>
-                                <label className="text-black dark:text-gray-200" htmlFor="last_name">Last Name</label>
+                                <label className="text-black dark:text-gray-200" htmlFor="last_name">
+                                    Last Name<span className='text-red-500'>*</span>
+                                </label>
                                 <input 
                                     type="text"
                                     id="last_name"
@@ -305,7 +328,9 @@ function AccountSettings() {
                                 />
                             </div>
                             <div>
-                                <label className="text-black dark:text-gray-200" htmlFor="email">Email</label>
+                                <label className="text-black dark:text-gray-200" htmlFor="email">
+                                    Email<span className='text-red-500'>*</span>
+                                </label>
                                 <input 
                                      type="email"
                                      id="email"
@@ -316,7 +341,9 @@ function AccountSettings() {
                                 />
                             </div>
                             <div>
-                                <label className="text-black dark:text-gray-200" htmlFor="phone">Phone</label>
+                                <label className="text-black dark:text-gray-200" htmlFor="phone">
+                                    Phone<span className='text-red-500'>*</span>
+                                </label>
                                 <input 
                                     type="tel"
                                     id="phone"
@@ -388,78 +415,10 @@ function AccountSettings() {
                             additionalCharges={additionalCharges} 
                             total={total}
                         />
-                        {/* <table className="table-auto">
-                        <thead>
-                            <tr>
-                                <td className='font-bold'>Charge</td>
-                                <td className='font-bold'>Unit</td>
-                                <td className='font-bold'>Rate</td>
-                                <td className='font-bold'>Total</td>
-                            </tr>
-                        </thead>
-                        <div style={{marginTop:'12px'}}></div>
-                        <tbody>
-                            <tr>
-                            <td>Daily</td>
-                            <td>{isNaN(day) ? 0 : day}</td>
-                            <td>$99.00</td>
-                            <td>${isNaN(day) ? 0 : (day * 99).toFixed(2)}</td>
-                            </tr>
-
-
-                            <tr>
-                            <td>Weekly</td>
-                            <td>{isNaN(week) ? 0 : week}</td>
-                            <td>$390.00</td>
-                            <td>${isNaN(week) ? 0 : (week * 390).toFixed(2)}</td>
-                            </tr>
-
-                            {additionalCharges.collision_Damage_Waiver && 
-                            <tr>
-                            <td>C.D.W.</td>
-                            <td>-</td>
-                            <td>$9.00</td>
-                            <td>$9.00</td>
-                            </tr>}
-
-                            {additionalCharges.liability_Insurance && 
-                            <tr>
-                            <td>Liability In.</td>
-                            <td>-</td>
-                            <td>$15.00</td>
-                            <td>$15.00</td>
-                            </tr>}
-                            
-                            {additionalCharges.rental_Tax && 
-                            <tr>
-                            <td>Rental Tax</td>
-                            <td>-</td>
-                            <td>11.5%</td>
-                            <td>11.5%</td>
-                            </tr>}
-
-                            <div style={{marginTop:'20px'}}></div>
-                            <tr>
-                            <td className='font-bold'>Total</td>
-                            <td></td>
-                            <td></td>
-                            <td className='font-bold'>${(total * 1).toFixed(2)}</td>
-                            </tr>
-                        </tbody>
-                        </table>  */}
                     </div>
-                    
-                    {/* <Link
-                        to={{
-                            pathname: '/invoice',
-                            state: { day: day, week: week, additionalCharges: additionalCharges, total:total }
-                        }}
-                        //  to="/invoice"
-                     > */}
                     <button onClick={redirectToInvoice} className="mt-4 rounded-md bg-primary hover:bg-primary/80 transition duration-500 py-2 px-6 text-white">
                         Invoice
                     </button>
-                    {/* </Link> */}
                 </div>
             </div>
         </section>

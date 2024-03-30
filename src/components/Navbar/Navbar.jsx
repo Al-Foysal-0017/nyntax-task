@@ -41,7 +41,7 @@ const Navbar = ({ theme, setTheme }) => {
         <div className="flex justify-between items-center">
           <div>
             <span className="text-3xl font-bold font-serif">
-            <Link to="/">Nyntax Car</Link>
+            <Link to="/">Nyntax Rent</Link>
             </span>
           </div>
           <nav className="hidden md:block">

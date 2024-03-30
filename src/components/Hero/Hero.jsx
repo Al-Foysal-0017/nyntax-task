@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-// import carPng from "../../assets/car.png";
-import carPng from "../../assets/supercar2.jpeg";
-// import yellowCar from "../../assets/banner-car.png";
-import yellowCar from "../../assets/supercar3.png";
+import { useEffect } from "react";
+import darkCar from "../../assets/supercar2.jpeg";
+import lightCar from "../../assets/supercar3.png";
 import AOS from "aos";
-// min-h-[620px] 
+import { Link } from "react-router-dom";
+
 const Hero = ({ theme }) => {
   useEffect(() => {
     AOS.refresh();
@@ -25,7 +24,7 @@ const Hero = ({ theme }) => {
             className="order-1 sm:order-2"
           >
             <img
-              src={theme === "dark" ? carPng : yellowCar}
+              src={theme === "dark" ? darkCar : lightCar}
               alt=""
               className="sm:scale-125 relative -z-10 max-h-[600px] drop-shadow-[2px_20px_6px_rgba(0,0,0,0.50)]"
             />
@@ -45,18 +44,20 @@ const Hero = ({ theme }) => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
               veritatis explicabo quibusdam quae reprehenderit ab{" "}
             </p>
-            <button
-
-              data-aos="fade-up"
-              data-aos-delay="1500"
-              onClick={() => {
-                AOS.refreshHard();
-              }}
-              className="rounded-md bg-primary hover:bg-primary/80 transition duration-500 py-2 px-6 text-white"
-              // style={{background:"#018CF3", color:"#fff"}}
-            >
-              Get Started
-            </button>
+            <div>
+              <Link to="/book-car">
+                <button
+                  data-aos="fade-up"
+                  data-aos-delay="1500"
+                  onClick={() => {
+                    AOS.refreshHard();
+                  }}
+                  className="rounded-md bg-primary hover:bg-primary/80 transition duration-500 py-2 px-6 text-white"
+                >
+                  Book Now
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -12,11 +12,11 @@ const Home = ({theme}) => {
     <div className="bg-white dark:bg-black dark:text-white text-black overflow-x-hidden">
       {/* <Navbar theme={theme} setTheme={setTheme} /> */}
       <Hero  theme={theme}/>
-      <About />
+      <About theme={theme}/>
       {/* <Services /> */}
       {/* <CarList /> */}
       <Testimonial />
-      <AppStoreBanner />
+      {/* <AppStoreBanner /> */}
       <Contact />
       
     </div>

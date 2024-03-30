@@ -1,21 +1,23 @@
-import React from "react";
+import man1 from "../../assets/person/man1.jpg"
+import man2 from "../../assets/person/man3.jpeg"
+import girl1 from "../../assets/person/man4.jpeg"
 
 const testimonialData = [
   {
-    name: "Dilshad",
-    image: "",
+    name: "Sohel",
+    image: man1,
     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     aosDelay: "0",
   },
   {
-    name: "Satya",
-    image: "",
+    name: "Somrat",
+    image: girl1,
     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     aosDelay: "300",
   },
   {
-    name: "Sabir",
-    image: "",
+    name: "Sabbir",
+    image: man2,
     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     aosDelay: "1000",
   },
@@ -50,7 +52,7 @@ const Testimonial = () => {
               >
                 <div className="grid place-items-center ">
                   <img
-                    src="https://picsum.photos/200"
+                    src={skill.image}
                     alt=""
                     className="rounded-full w-20 h-20"
                   />

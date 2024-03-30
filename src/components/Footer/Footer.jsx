@@ -1,4 +1,3 @@
-import React from "react";
 import {
   FaFacebook,
   FaInstagram,
@@ -6,34 +5,27 @@ import {
   FaLocationArrow,
   FaMobileAlt,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const FooterLinks = [
   {
     title: "Home",
-    link: "/#",
+    link: "/",
   },
   {
-    title: "About",
-    link: "/#about",
-  },
-  {
-    title: "Contact",
-    link: "/#contact",
-  },
-  {
-    title: "Blog",
-    link: "/#blog",
+    title: "Book Now",
+    link: "/book-car",
   },
 ];
 const Footer = () => {
   return (
-    <div className="bg-gray-100 dark:bg-dark m t-14 rounded-t-3xl">
+    <div className="bg-gray-100 dark:bg-dark dark:text-white">
       <section className="container">
         <div className=" grid md:grid-cols-3 py-5">
           {/* company Details */}
           <div className=" py-8 px-4 ">
             <h1 className="sm:text-3xl text-xl font-bold sm:text-left text-justify mb-3 flex items-center gap-3 font-serif">
-              Car Rental
+              Nyntax Car Rental
             </h1>
             <p className="text-sm">
               Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
@@ -42,11 +34,11 @@ const Footer = () => {
             <br />
             <div className="flex items-center gap-3">
               <FaLocationArrow />
-              <p>Noida, Uttar Pradesh</p>
+              <p>Dhaka, Bangladesh</p>
             </div>
             <div className="flex items-center gap-3 mt-3">
               <FaMobileAlt />
-              <p>+91 123456789</p>
+              <p>+880-1753210017</p>
             </div>
             {/* Social Handle */}
             <div className="flex items-center gap-3 mt-6">
@@ -69,11 +61,15 @@ const Footer = () => {
                   Important Links
                 </h1>
                 <ul className={`flex flex-col gap-3`}>
-                  {FooterLinks.map((link) => (
-                    <li className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-500 dark:text-gray-200">
-                      <span>&#11162;</span>
-                      <span>{link.title}</span>
-                    </li>
+                  {FooterLinks.map((link, id) => (
+                    <div key={id}>
+                      <Link to={link.link}>
+                        <li className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-500 dark:text-gray-200">
+                          <span>&#11162;</span>
+                          <span>{link.title}</span>
+                        </li>
+                      </Link>
+                    </div>
                   ))}
                 </ul>
               </div>
@@ -84,11 +80,15 @@ const Footer = () => {
                   Links
                 </h1>
                 <ul className="flex flex-col gap-3">
-                  {FooterLinks.map((link) => (
-                    <li className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-500 dark:text-gray-200">
-                      <span>&#11162;</span>
-                      <span>{link.title}</span>
-                    </li>
+                  {FooterLinks.map((link, id) => (
+                    <div key={id}>
+                      <Link to={link.link}>
+                        <li className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-500 dark:text-gray-200">
+                          <span>&#11162;</span>
+                          <span>{link.title}</span>
+                        </li>
+                      </Link>
+                    </div>
                   ))}
                 </ul>
               </div>
@@ -98,13 +98,16 @@ const Footer = () => {
                 <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
                   Location
                 </h1>
-                {/* <ul className="list-disc list-inside"> */}
                 <ul className="flex flex-col gap-3">
-                  {FooterLinks.map((link) => (
-                    <li className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-500 dark:text-gray-200">
-                      <span>&#11162;</span>
-                      <span>{link.title}</span>
-                    </li>
+                  {FooterLinks.map((link, id) => (
+                    <div key={id}>
+                      <Link to={link.link}>
+                        <li className="cursor-pointer hover:translate-x-1 duration-300 hover:!text-primary space-x-1 text-gray-500 dark:text-gray-200">
+                          <span>&#11162;</span>
+                          <span>{link.title}</span>
+                        </li>
+                      </Link>
+                  </div>
                   ))}
                 </ul>
               </div>
