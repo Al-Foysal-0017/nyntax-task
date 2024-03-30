@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import "./Book.css"
 import { useNavigate } from "react-router-dom";
 import TotalCharges from '../../components/TotalCarges/TotalCharges';
@@ -53,12 +54,11 @@ function AccountSettings() {
         if (name === 'return_Date') {
           const returnDate = new Date(value);
           if (returnDate <= today) {
-            alert('Return date should be after today. Please select a valid return date.');
+            toast.error("Return date should be after today. Please select a valid return date.");
             return;
           }
           if (returnDate <= reservationData.pickup_Date) {
-            alert('Return date should be after pickup date. Please select a valid return date.');
-            return;
+            toast.error("Return date should be after pickup date. Please select a valid return date.");
           }
         }
     
@@ -155,7 +155,7 @@ function AccountSettings() {
             !customerInfo.email ||
             !customerInfo.phone
         ) {
-            alert('Please fill in all required fields.');
+            toast.error("Please fill all the required fields.")
             return;
         }
 
@@ -172,6 +172,11 @@ function AccountSettings() {
         });
     };
   return (
+    <>
+    <Toaster
+        position="top-center"
+        reverseOrder={false}
+    />
     <div className='dark:bg-dark dark:text-white pb-40'>
         <section className='container py-2 md:py-0 min-h-screen '>
             <h1 className="pt-20 pb-10 text-3xl font-bold capitalize">
@@ -184,7 +189,7 @@ function AccountSettings() {
                     {/* A side */}
                     <div className='lg:w-1/2 w-full flex flex-col gap-3'>
                         <div className='flex w-full flex-col gap-6 p-6 mx-auto rounded-md shadow-md dark:bg-gray-800'>
-                            <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-black">
+                            <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-white">
                                 Reservation Details
                             </h1>
                             <div>
@@ -256,7 +261,7 @@ function AccountSettings() {
                             </div>
                         </div>
                         <div className='flex w-full flex-col gap-6 p-6 mx-auto rounded-md shadow-md dark:bg-gray-800'>
-                            <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-black">
+                            <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-white">
                                 Vehicle Information
                             </h1>
                             <div>
@@ -270,10 +275,9 @@ function AccountSettings() {
                                     onChange={handleVehicleDataChange} 
                                     className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                                 >
-                                    <option value="Surabaya">Surabaya</option>
-                                    <option value="Jakarta">Jakarta</option>
-                                    <option value="Tangerang">Tangerang</option>
-                                    <option value="Bandung">Bandung</option>
+                                    <option value="" disabled>Select</option>
+                                    <option value="Sedan">Sedan</option>
+                                    <option value="SUV">SUV</option>
                                 </select>
                             </div>
                             <div>
@@ -287,10 +291,11 @@ function AccountSettings() {
                                     onChange={handleVehicleDataChange}
                                     className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                                 >
-                                    <option value="Surabaya">Surabaya</option>
-                                    <option value="Jakarta">Jakarta</option>
-                                    <option value="Tangerang">Tangerang</option>
-                                    <option value="Bandung">Bandung</option>
+                                    <option value="" disabled>Select</option>
+                                    <option value="Toyota Camry (2022)">Toyota Camry (2022)</option>
+                                    <option value="Honda Civic (2021)">Honda Civic (2021)</option>
+                                    <option value="Ford Escape (2023)">Ford Escape (2023)</option>
+                                    <option value="Chevrolet Tahoe (2022)">Chevrolet Tahoe (2022)</option>
                                 </select>
                             </div>
                         </div>
@@ -298,7 +303,7 @@ function AccountSettings() {
                     {/* B side */}
                     <div className='lg:w-1/2 w-full flex flex-col gap-3'>
                         <div className='flex w-full flex-col gap-6 p-6 mx-auto rounded-md shadow-md dark:bg-gray-800'>
-                            <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-black">
+                            <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-white">
                                 Customer Information
                             </h1>
                             <div>
@@ -355,7 +360,7 @@ function AccountSettings() {
                             </div>
                         </div>
                         <div className='flex w-full flex-col gap-6 p-6 mx-auto rounded-md shadow-md dark:bg-gray-800'>
-                            <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-black">
+                            <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-white">
                                 Additional Charges
                             </h1>
                             <div className="flex justify-between items-center">
@@ -403,10 +408,10 @@ function AccountSettings() {
                         </div>
                     </div>
                 </div>
-                <div className='xl:w-1/3 w-full '>
+                <div className='xl:w-1/3 w-full'>
                     {/* C cide */}
-                    <div className='w-full flex flex-col gap-6 p-6 mx-auto rounded-md shadow-md dark:bg-gray-800'>
-                        <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-black">
+                    <div className='totalChargesBg borderBlue w-full flex flex-col gap-6 p-6 mx-auto rounded-md shadow-md dark:bg-gray-800'>
+                        <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-white">
                             Charges Summary
                         </h1>
                         <TotalCharges 
@@ -416,13 +421,14 @@ function AccountSettings() {
                             total={total}
                         />
                     </div>
-                    <button onClick={redirectToInvoice} className="mt-4 rounded-md bg-primary hover:bg-primary/80 transition duration-500 py-2 px-6 text-white">
+                    <button onClick={redirectToInvoice} className="w-full mt-4 rounded-md bg-primary hover:bg-primary/80 transition duration-500 py-2 px-6 text-white">
                         Invoice
                     </button>
                 </div>
             </div>
         </section>
     </div>
+    </>
   );
 }
 

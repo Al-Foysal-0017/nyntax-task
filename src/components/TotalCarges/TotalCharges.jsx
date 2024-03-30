@@ -1,4 +1,3 @@
-import React from 'react';
 
 const TotalCharges = ({ day, week, additionalCharges, total }) => {
   return (

@@ -1,3 +1,11 @@
 .bookBottomBorder{
     border-bottom: 2px solid #048BF3;
 }
+
+.borderBlue{
+    border: 2px solid #048BF3;
+}
+
+.totalChargesBg{
+    background: #048bf324;
+}

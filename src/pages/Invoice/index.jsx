@@ -61,7 +61,7 @@ const Invoice = () => {
   return (
     <div className="pb-14 min-h-screen dark:bg-dark bg-slate-100 sm:grid sm:place-items-center duration-300">
       <div className="container flex flex-col items-center">
-        <h1 className="mt-20 mb-10 text-3xl font-bold text-black capitalize dark:text-black">
+        <h1 className="mt-20 mb-10 text-3xl font-bold text-black capitalize dark:text-white">
             Booking Info
         </h1>
         <div className="flex gap-2 mb-8">
@@ -72,9 +72,6 @@ const Invoice = () => {
             Print
           </button>
         </div>
-        {/* <button onClick={downloadPDF}>Download</button>
-        <button onClick={printContent}>Print</button> */}
-        {/* <div ref={pdfRef} className="p-16 bg-white grid grid-cols-1 lg:grid-cols-2 place-items-cente">  */}
         <div ref={pdfRef} id="printable-content" className="p-16 bg-white" style={{width:"210mm", height:"297mm"}}>
           <div  className="grid grid-cols-2 place-items-cente"> 
             <div className="">
@@ -83,37 +80,22 @@ const Invoice = () => {
                 alt=""
                 width={250}
               />
-
               <div className="">
                 <div className="text-primary font-bold">Nyntax</div>
                 <div className="">Car Rental</div>
                 <div>nyntax@gmail.com</div>
                 <div>Dhaka, Bangladesh</div>
               </div>
-
               <p className="text-sm pr-8 pt-8">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                 when an unknown printer took a galley of type and scrambled it to make a type book. 
               </p>
-
-              {/* <div className="mt-16">
-                  <h1
-                      className="mb-1 text-xl sm:text-2xl font-bold font-serif"
-                  >
-                      Renter Info
-                  </h1>
-                  <div>
-                    <span className="font-bold text-gray-600">Name: </span>{`${customerInfo?.first_name} ${customerInfo?.last_name}`}
-                  </div>
-                  <div><span className="font-bold text-gray-600">Email: </span>{customerInfo?.email}</div>
-                  <div><span className="font-bold text-gray-600">Phone: </span>{customerInfo?.phone}</div>
-              </div> */}
             </div>
             
             
             <div className="border-black border-">
-              <div className="mt-16">
+              <div className="mt-8">
                   <h1
                       className="mb-1 text-xl sm:text-2xl font-bold font-serif"
                   >
@@ -125,7 +107,7 @@ const Invoice = () => {
                   <div><span className="font-bold text-gray-600">Email: </span>{customerInfo?.email}</div>
                   <div><span className="font-bold text-gray-600">Phone: </span>{customerInfo?.phone}</div>
               </div>
-              <div className="mt-12">
+              <div className="mt-4">
                   <h1
                       className="mb-1 text-xl sm:text-2xl font-bold font-serif"
                   >
@@ -140,7 +122,7 @@ const Invoice = () => {
                   {reservationData?.discount &&
                   <div><span className="font-bold text-gray-600">Discount: </span>{reservationData?.discount}</div>}
               </div>
-              <div className="mt-12">
+              <div className="mt-4">
                   <h1
                       className="mb-1 text-xl sm:text-2xl font-bold font-serif"
                   >
@@ -150,7 +132,7 @@ const Invoice = () => {
                   <div><span className="font-bold text-gray-600">Vehicle: </span>{vehicleData?.vehicle}</div>
               </div>
 
-              <div className="mt-12">
+              <div className="mt-4">
                   <h1
                       className="mb-1 text-xl sm:text-2xl font-bold font-serif"
                   >
@@ -172,37 +154,16 @@ const Invoice = () => {
                     </div>
                   }
               </div>
-              {/* <div className="space-y- mt-12">
-                <h1
-                  className="text-2xl sm:text-3xl font-bold font-serif"
-                >
-                  Charges Summary
-                </h1>
-                <div className='w-full flex flex-col gap-6 p-6 mx-auto rounded-md shadow-md dark:bg-gray-800'>
-                          <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-black">
-                              Charges Summary
-                          </h1>
-                          <TotalCharges
-                              day={day} 
-                              week={week} 
-                              additionalCharges={additionalCharges} 
-                              total={total}
-                          />
-                      </div>
-              </div> */}
             </div>
           </div>
 
-          <div className="space-y- mt-12">
+          <div className="space-y- mt-8">
                 <h1
                   className="mt-24 mb-2 text-2xl sm:text-3xl font-bold font-serif"
                 >
                   Charges Summary
                 </h1>
-                <div className='w-full flex flex-col gap-6 p-6 mx-auto rounded-md shadow-md dark:bg-gray-800'>
-                          {/* <h1 className="bookBottomBorder text-xl font-bold text-black capitalize dark:text-black">
-                              Charges Summary
-                          </h1> */}
+                <div className='w-full flex flex-col gap-6 p-6 mx-auto rounded-md shadow-md'>
                           <TotalCharges
                               day={day} 
                               week={week} 

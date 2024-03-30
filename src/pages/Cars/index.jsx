@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../../components/Loader/Loader";
+import { Link } from "react-router-dom";
 
 const CarList = () => {
   const [cars, setCars] = useState([]);
@@ -32,9 +33,9 @@ const CarList = () => {
     return <div>{error}</div>;
   }
   return (
-    <div className="pb-24">
+    <div className="pb-24 dark:bg-dark dark:text-white">
       <div className="container">
-        <h1 data-aos="fade-up" className="mt-20 mb-10 text-3xl font-bold text-black capitalize dark:text-black">
+        <h1 data-aos="fade-up" className="pt-20 mb-10 text-3xl font-bold text-black capitalize dark:text-white">
             Our Cars
         </h1>
         <div>
@@ -60,7 +61,7 @@ const CarList = () => {
                             <p>{car.rates.daily}/D</p>&nbsp;&nbsp;&nbsp;
                             <p>{car.rates.weekly}/W</p>
                         </div>
-                        {/* <a href="#">Details</a> */}
+                        <Link to="/book-car">Book Car</Link>
                   </div>
                     {/* <p>Type: {car.type}</p> */}
                     <div className="flex">
@@ -70,7 +71,7 @@ const CarList = () => {
                     <p className="text-sm text-gray-500">Features: {car.features.join(', ')}</p>
                 </div>
                 <p className="text-xl font-semibold absolute top-0 left-3">
-                  {/* 12Km */}{car.type}
+                  {car.type}
                 </p>
               </div>
             ))}
