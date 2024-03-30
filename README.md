@@ -6,16 +6,16 @@ Here, to run this code on your PC, firstly clone the code from the Git repositor
 
 Then, for installing the required Node modules, use the following command in the terminal:
 ```
->>> npm i
+npm i
 ```
 
 To run this project, use the following command:
 ```
->>> npm run dev
+npm run dev
 ```
 or,
 ```
->>>yarn dev
+yarn dev
 ```
 
 This project is built using React.js. It is a simple project, so I did not use TypeScript, Redux, or Next.js. I created it using simple React.js.
