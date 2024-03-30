@@ -29,7 +29,7 @@ Additionally, there is a simple Navbar and Footer on every page. The website is 
 
 
 <br><br><br>
-2. For the Home Page:
+1. For the Home Page:
 ----------------------
  It serves as a landing page with several sections such as- the hero section, about-us section, testimonial section, and contact section.
 
