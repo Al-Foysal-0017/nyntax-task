@@ -69,7 +69,7 @@ const CarList = () => {
                             <p>{car.rates.daily}/D</p>&nbsp;&nbsp;&nbsp;
                             <p>{car.rates.weekly}/W</p>
                         </div>
-                        <button onClick={()=>{naviageToDetails(car)}}>Car Details</button>
+                        <button onClick={()=>{naviageToDetails(car)}}>Details</button>
                          
                   </div>
                     <div className="flex">
