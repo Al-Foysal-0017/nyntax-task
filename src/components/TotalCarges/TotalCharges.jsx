@@ -1,5 +1,5 @@
 
-const TotalCharges = ({ day, week, additionalCharges, total }) => {
+const TotalCharges = ({ day, week, additionalCharges, total, rentalRates, vehicleData }) => {
   return (
     <table className="table-auto">
       <thead>
@@ -14,14 +14,14 @@ const TotalCharges = ({ day, week, additionalCharges, total }) => {
         <tr>
           <td>Daily</td>
           <td>{isNaN(day) ? 0 : day}</td>
-          <td>$99.00</td>
-          <td>${isNaN(day) ? 0 : (day * 99).toFixed(2)}</td>
+          <td>${rentalRates[vehicleData?.vehicle]?.daily}</td>
+          <td>${rentalRates[vehicleData.vehicle]?.daily * (isNaN(day) ? 0 : day) || 0}</td>
         </tr>
         <tr>
           <td>Weekly</td>
           <td>{isNaN(week) ? 0 : week}</td>
-          <td>$390.00</td>
-          <td>${isNaN(week) ? 0 : (week * 390).toFixed(2)}</td>
+          <td>${rentalRates[vehicleData.vehicle]?.weekly}</td>
+          <td>${rentalRates[vehicleData.vehicle]?.weekly * (isNaN(week) ? 0 : week) || 0}</td>
         </tr>
         {additionalCharges?.collision_Damage_Waiver &&
           <tr>

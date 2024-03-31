@@ -95,38 +95,31 @@ function AccountSettings() {
     
     const vehicleOptions = vehicleData.vehicle_Type === 'Sedan' ? sedanOptions : suvOptions;
 
-    const rentalRates = {
-        'Toyota Camry (2022)': { daily: 70, weekly: 400 },
-        'Honda Civic (2021)': { daily: 60, weekly: 350 },
-        'Ford Escape (2023)': { daily: 90, weekly: 500 },
-        'Chevrolet Tahoe (2022)': { daily: 100, weekly: 600 }
-    };
-
     const calculateTotal = () => {
         let total = 0;
-      
-        // Calculate daily charge based on selected vehicle
-        const dailyCharge = rentalRates[vehicleData.vehicle]?.daily * (isNaN(day) ? 0 : day) || 0;
+
+        // Calculate daily charge
+        const dailyCharge = isNaN(day) ? 0 : day * 99;
         total += dailyCharge;
-      
-        // Calculate weekly charge based on selected vehicle
-        const weeklyCharge = rentalRates[vehicleData.vehicle]?.weekly * (isNaN(week) ? 0 : week) || 0;
+
+        // Calculate weekly charge
+        const weeklyCharge = isNaN(week) ? 0 : week * 390;
         total += weeklyCharge;
-      
+
         // Add additional charges
         if (additionalCharges.collision_Damage_Waiver) {
-          total += 9;
+        total += 9;
         }
         if (additionalCharges.liability_Insurance) {
-          total += 15;
+        total += 15;
         }
         if (additionalCharges.rental_Tax) {
-          total += (total * 11.5) / 100; // Adding 11.5% of the total
+        total += (total * 11.5) / 100; // Adding 11.5% of the total
         }
-      
+
         return total.toFixed(2); // Format total with two decimal places
     };
-      
+
     const total = calculateTotal(); // Calculate total
 
     useEffect(() => {
@@ -428,8 +421,6 @@ function AccountSettings() {
                             week={week} 
                             additionalCharges={additionalCharges} 
                             total={total}
-                            rentalRates={rentalRates}
-                            vehicleData={vehicleData}
                         />
                     </div>
                     <button onClick={redirectToInvoice} className="w-full mt-4 rounded-md bg-primary hover:bg-primary/80 transition duration-500 py-2 px-6 text-white">
