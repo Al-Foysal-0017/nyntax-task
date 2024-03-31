@@ -178,6 +178,7 @@ function AccountSettings() {
                 reservationData,
                 vehicleData,
                 customerInfo,
+                rentalRates
             },
         });
     };

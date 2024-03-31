@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 const Invoice = () => {
   const pdfRef = useRef();
   const location = useLocation();
-  const { day, week, additionalCharges, total, reservationData, vehicleData, customerInfo } = location.state;
+  const { day, week, additionalCharges, total, reservationData, vehicleData, customerInfo, rentalRates } = location.state;
 
   const downloadPDF = () => {
     const input = pdfRef.current;
@@ -142,6 +142,8 @@ const Invoice = () => {
                 week={week}
                 additionalCharges={additionalCharges}
                 total={total}
+                rentalRates={rentalRates}
+                vehicleData={vehicleData}
               />
             </div>
           </div>
