@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import BookingCar from "./pages/Book";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/scrollToTop";
 import Invoice from "./pages/Invoice";
 import Cars from "./pages/Cars";
 import CarDetails from "./pages/CarDetails";
@@ -38,6 +39,7 @@ const App = () => {
       }, []);
   return (
     <div>
+      <ScrollToTop />
       <Navbar theme={theme} setTheme={setTheme}/>
       <Routes>
         <Route path="/" element={<Home theme={theme}/>} />
