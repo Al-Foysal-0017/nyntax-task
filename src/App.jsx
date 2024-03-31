@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Invoice from "./pages/Invoice";
 import Cars from "./pages/Cars";
+import CarDetails from "./pages/CarDetails";
 
 const App = () => {
       const [theme, setTheme] = useState(
@@ -43,8 +44,9 @@ const App = () => {
         <Route path="/book-car" element={<BookingCar />} />
         <Route path="/invoice" element={<Invoice />} />
         <Route path="/cars" element={<Cars />} />
+        <Route path="/car-details" element={<CarDetails />} />
       </Routes>
-      <Footer />
+      <Footer/>
     </div>
     
   );

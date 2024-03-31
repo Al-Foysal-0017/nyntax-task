@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
 import Loader from "../../components/Loader/Loader";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CarList = () => {
+  const navigate = useNavigate();
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
+  const naviageToDetails=(car)=>{
+    navigate("/car-details", {
+      state: {car},
+    });
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -61,7 +69,8 @@ const CarList = () => {
                             <p>{car.rates.daily}/D</p>&nbsp;&nbsp;&nbsp;
                             <p>{car.rates.weekly}/W</p>
                         </div>
-                        <Link to="/book-car">Book Car</Link>
+                        <button onClick={()=>{naviageToDetails(car)}}>Car Details</button>
+                         
                   </div>
                     <div className="flex">
                         <p>Seats: {car.seats};</p>&nbsp;&nbsp;&nbsp;
